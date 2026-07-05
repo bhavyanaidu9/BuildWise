@@ -68,13 +68,18 @@ app.include_router(reviews_router, prefix="/api")
 # e.g. "https://buildconnect.vercel.app,http://localhost:5173"
 _raw_origins = settings.FRONTEND_URL.split(",")
 origins = list({o.strip() for o in _raw_origins if o.strip()})
-# Always allow local dev
-origins += ["http://localhost:5173", "http://127.0.0.1:5173"]
+# Always allow local dev + known Vercel deployment
+origins += [
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+    "https://build-wise-ten.vercel.app",
+]
 origins = list(set(origins))
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
+    allow_origin_regex=r"https://.*\.vercel\.app",  # allow all Vercel preview deploys
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
