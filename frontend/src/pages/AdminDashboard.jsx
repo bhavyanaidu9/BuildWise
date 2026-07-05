@@ -24,7 +24,7 @@ const AdminDashboard = () => {
     setLoading(true);
     setError('');
     try {
-      const res = await fetch('${API_BASE_URL}/api/builders/search?limit=100');
+      const res = await fetch(`${API_BASE_URL}/api/builders/search?limit=100`);
       if (res.ok) {
         const data = await res.json();
         setBuilders(data.builders || []);

@@ -120,7 +120,7 @@ const BuilderProfileEdit = () => {
 
     try {
       // Direct call because we are sending multipart/form-data
-      const res = await fetch('${API_BASE_URL}/api/builders/portfolio/upload', {
+      const res = await fetch(`${API_BASE_URL}/api/builders/portfolio/upload`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${user.token}`

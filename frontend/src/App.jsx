@@ -36,7 +36,7 @@ const PageLayout = ({ children }) => {
   useEffect(() => {
     const checkHealth = async () => {
       try {
-        const healthRes = await fetch('${API_BASE_URL}/api/health');
+        const healthRes = await fetch(`${API_BASE_URL}/api/health`);
         if (healthRes.ok) {
           const healthData = await healthRes.json();
           setApiStatus({ loading: false, connected: true, db: healthData.database });
@@ -208,8 +208,8 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const bRes = await fetch('${API_BASE_URL}/api/builders/search?limit=3');
-        const pRes = await fetch('${API_BASE_URL}/api/projects');
+        const bRes = await fetch(`${API_BASE_URL}/api/builders/search?limit=3`);
+        const pRes = await fetch(`${API_BASE_URL}/api/projects`);
         if (bRes.ok) {
           const bData = await bRes.json();
           setBuilders(bData.builders || []);
