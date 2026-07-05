@@ -1,0 +1,39 @@
+.bc-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 48px 24px;
+  background-color: var(--bc-bg-secondary);
+  border: 1px dashed var(--bc-border);
+  border-radius: var(--bc-radius-lg);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.bc-empty-state-icon {
+  color: var(--bc-text-muted);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bc-empty-state-title {
+  font-family: var(--bc-font-display);
+  font-size: 1.25rem;
+  color: var(--bc-primary-dark);
+  margin-bottom: 8px;
+}
+
+.bc-empty-state-description {
+  font-size: 0.95rem;
+  color: var(--bc-text-secondary);
+  margin-bottom: 24px;
+  max-width: 320px;
+}
+
+.bc-empty-state-action {
+  min-width: 140px;
+}

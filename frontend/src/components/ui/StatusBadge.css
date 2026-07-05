@@ -1,0 +1,41 @@
+.bc-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: var(--bc-radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.bc-badge-success {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: var(--bc-success);
+}
+
+.bc-badge-warning {
+  background-color: rgba(244, 163, 0, 0.1);
+  color: var(--bc-warning);
+}
+
+.bc-badge-danger {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: var(--bc-danger);
+}
+
+.bc-badge-info {
+  background-color: rgba(62, 92, 118, 0.1);
+  color: var(--bc-primary-light);
+}
+
+.bc-badge-primary {
+  background-color: rgba(30, 42, 56, 0.1);
+  color: var(--bc-primary);
+}
+
+.bc-badge-secondary {
+  background-color: var(--bc-bg-tertiary);
+  color: var(--bc-text-secondary);
+}

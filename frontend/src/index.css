@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+  --bc-primary: #1E2A38;
+  --bc-primary-light: #3E5C76;
+  --bc-primary-dark: #0F172A;
+  --bc-accent: #F4A300;
+  --bc-accent-light: #FFB01F;
+  --bc-success: #10B981;
+  --bc-danger: #EF4444;
+  --bc-warning: #F4A300;
+  --bc-bg-primary: #F8FAFC;
+  --bc-bg-secondary: #FFFFFF;
+  --bc-bg-tertiary: #F1F5F9;
+  --bc-text-primary: #1E2A38;
+  --bc-text-secondary: #64748B;
+  --bc-text-muted: #94A3B8;
+  --bc-border: #E2E8F0;
+  --bc-border-active: #3E5C76;
+  --bc-radius-sm: 8px;
+  --bc-radius-md: 12px;
+  --bc-radius-lg: 16px;
+  --bc-radius-full: 9999px;
+  --bc-shadow-sm: 0 2px 8px rgba(30, 42, 56, 0.05);
+  --bc-shadow-md: 0 8px 16px rgba(30, 42, 56, 0.08);
+  --bc-shadow-lg: 0 16px 32px rgba(30, 42, 56, 0.12);
+  --bc-font-sans: 'Inter', -apple-system, sans-serif;
+  --bc-font-display: 'Space Grotesk', 'Inter', sans-serif;
+}
+
+/* Base Resets */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--bc-font-sans);
+  background-color: var(--bc-bg-primary);
+  color: var(--bc-text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--bc-font-display);
+  font-weight: 700;
+  color: var(--bc-primary-dark);
+}
+
+a {
+  color: var(--bc-primary-light);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--bc-primary);
+}
+
+/* Custom Scrollbar for Premium Feel */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bc-bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--bc-text-muted);
+  border-radius: var(--bc-radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--bc-text-secondary);
+}
+
+/* Core Utility Classes */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--bc-font-sans);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 10px 20px;
+  border-radius: var(--bc-radius-md);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+  user-select: none;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-primary {
+  background-color: var(--bc-primary);
+  color: var(--bc-bg-secondary);
+}
+
+.btn-primary:hover {
+  background-color: var(--bc-primary-light);
+  box-shadow: var(--bc-shadow-md);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--bc-primary);
+  border-color: var(--bc-border);
+}
+
+.btn-outline:hover {
+  background-color: var(--bc-bg-tertiary);
+  border-color: var(--bc-primary-light);
+}
+
+.btn-accent {
+  background-color: var(--bc-accent);
+  color: var(--bc-primary-dark);
+}
+
+.btn-accent:hover {
+  background-color: var(--bc-accent-light);
+  box-shadow: var(--bc-shadow-md);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border-radius: var(--bc-radius-full);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge-success {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: var(--bc-success);
+}
+
+.badge-warning {
+  background-color: rgba(244, 163, 0, 0.1);
+  color: var(--bc-warning);
+}
+
+.badge-danger {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: var(--bc-danger);
+}
+
+.badge-info {
+  background-color: rgba(62, 92, 118, 0.1);
+  color: var(--bc-primary-light);
+}
+
+/* Premium Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}

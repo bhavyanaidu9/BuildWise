@@ -1,0 +1,90 @@
+.bc-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--bc-font-sans);
+  font-weight: 600;
+  border-radius: var(--bc-radius-md);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  outline: none;
+  user-select: none;
+}
+
+.bc-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.bc-btn:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+/* Sizes */
+.bc-btn-sm {
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  border-radius: var(--bc-radius-sm);
+}
+
+.bc-btn-md {
+  padding: 10px 20px;
+  font-size: 0.95rem;
+  border-radius: var(--bc-radius-md);
+}
+
+/* Variants */
+.bc-btn-primary {
+  background-color: var(--bc-primary);
+  color: var(--bc-bg-secondary);
+}
+
+.bc-btn-primary:hover:not(:disabled) {
+  background-color: var(--bc-primary-light);
+  box-shadow: var(--bc-shadow-sm);
+}
+
+.bc-btn-outline {
+  background-color: transparent;
+  color: var(--bc-primary);
+  border-color: var(--bc-border);
+}
+
+.bc-btn-outline:hover:not(:disabled) {
+  background-color: var(--bc-bg-tertiary);
+  border-color: var(--bc-primary-light);
+}
+
+.bc-btn-danger {
+  background-color: var(--bc-danger);
+  color: var(--bc-bg-secondary);
+  border-color: var(--bc-danger);
+}
+
+.bc-btn-danger:hover:not(:disabled) {
+  background-color: var(--bc-primary-dark);
+  border-color: var(--bc-primary-dark);
+  box-shadow: var(--bc-shadow-sm);
+}
+
+/* Loading state spinner */
+.bc-btn-loading {
+  position: relative;
+  cursor: wait;
+}
+
+.bc-btn-spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid transparent;
+  border-top-color: currentColor;
+  border-right-color: currentColor;
+  border-radius: var(--bc-radius-full);
+  animation: bc-btn-spin 0.6s linear infinite;
+}
+
+@keyframes bc-btn-spin {
+  to { transform: rotate(360deg); }
+}
