@@ -30,6 +30,9 @@ else:
     # PostgreSQL (Supabase, Render, Railway): enable SSL + connection pooling
     if IS_REMOTE_PG:
         connect_args["ssl"] = "require"
+        # Supabase uses PgBouncer (port 6543) which fails with prepared statements
+        connect_args["statement_cache_size"] = 0
+        connect_args["prepared_statement_cache_size"] = 0
     engine_kwargs["pool_pre_ping"] = True   # auto-reconnect on dropped connections
     engine_kwargs["pool_size"] = 5
     engine_kwargs["max_overflow"] = 10
