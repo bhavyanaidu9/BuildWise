@@ -22,11 +22,21 @@ from app.routers.reviews import router as reviews_router
 from app.database import Base
 import app.models  # noqa — ensures all model classes are registered
 
+import logging
+
+logger = logging.getLogger(__name__)
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # Auto-create all tables on startup (safe: won't drop existing data)
-    async with engine.begin() as conn:
-        await conn.run_sync(Base.metadata.create_all)
+    # Wrapped in try/except so the app starts even if DB is temporarily unreachable
+    try:
+        async with engine.begin() as conn:
+            await conn.run_sync(Base.metadata.create_all)
+        logger.info("Database tables created/verified successfully.")
+    except Exception as e:
+        logger.error(f"Could not connect to database on startup: {e}")
+        logger.error("App will start anyway. Tables will be created on first successful DB request.")
     yield
 
 app = FastAPI(
